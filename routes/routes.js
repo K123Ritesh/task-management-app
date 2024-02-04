@@ -1,7 +1,7 @@
 // routes/todoRoutes.js
 const express = require('express');
 const router = express.Router();
-const Todo = require('../models/Todo');
+const Todo = require('../models/todo.models');
 
 // GET all todos
 router.get('/', async (req, res) => {
@@ -24,6 +24,16 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/create', async (req, res) => {
+  try {
+    // const todo = new Todo(req.body);
+    // const savedTodo = await todo.save();
+    // res.status(201).json(savedTodo);
+    res.send("Hello World")
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
 // PUT update a todo
 router.put('/:id', async (req, res) => {
   try {
